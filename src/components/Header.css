@@ -1,0 +1,123 @@
+.resumeList {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.header {
+  height: 75px;
+  padding: 0 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #0f172a;
+  color: white;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo */
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: #38bdf8;
+}
+
+/* Navigation */
+
+.resumeList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resumeList button {
+  background: transparent;
+  border: none;
+
+  color: #cbd5e1;
+  font-size: 15px;
+  font-weight: 500;
+
+  padding: 10px 14px;
+  border-radius: 6px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resumeList button:hover {
+  color: white;
+  background: #1e293b;
+}
+
+/* Download Resume */
+
+.resumeBtn {
+  background: #2563eb;
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 11px 18px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.resumeBtn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+  .header {
+    padding: 0 25px;
+  }
+
+  .resumeList {
+    gap: 2px;
+  }
+
+  .resumeList button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .resumeBtn {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .header {
+    height: auto;
+    padding: 18px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .resumeList {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
