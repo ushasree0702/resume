@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import "./Contact.css";
 
 function Contact() {
+  const navigate = useNavigate();
   return (
     <section className="contact" id="contact">
       <div className="contact-container">
@@ -55,11 +57,19 @@ function Contact() {
 
             {/* Social Links */}
             <div className="social-links">
-              <a href="#" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.linkedin.com/in/usha-m-971758229/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 LinkedIn
               </a>
 
-              <a href="#" target="_blank" rel="noreferrer">
+              <a
+                href="https://github.com/ushasree0702/resume"
+                target="_blank"
+                rel="noreferrer"
+              >
                 GitHub
               </a>
             </div>
