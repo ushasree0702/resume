@@ -220,14 +220,29 @@
 
 /* Responsive */
 
+/* Slider */
+
+.projects-slider {
+  width: 100%;
+  padding: 10px 5px 55px;
+  --swiper-theme-color: #2563eb;
+}
+
+swiper-slide {
+  height: auto;
+}
+
+.project-card {
+  height: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
 @media (max-width: 900px) {
   .projects-section {
     padding: 70px 30px;
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 600px) {

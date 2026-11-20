@@ -1,5 +1,5 @@
 .about {
-  min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 70px);
 
   display: flex;
   align-items: center;
@@ -146,7 +146,7 @@
 }
 
 .profile-card {
-  width: 300px;
+  width: 320px;
 
   padding: 40px 30px;
 
@@ -261,5 +261,86 @@
 
   .profile-card {
     width: 250px;
+  }
+}
+
+/* Links styled as buttons */
+
+.about-buttons {
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Social links */
+
+.about-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.about-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.about-social a:hover {
+  color: #2563eb;
+}
+
+.about-social svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Profile card extras */
+
+.profile-location {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.stats-grid .experience-box {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.stats-grid .experience-box strong {
+  font-size: 26px;
+}
+
+.stats-grid .experience-box span {
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+@media (max-width: 900px) {
+  .about-social {
+    justify-content: center;
   }
 }

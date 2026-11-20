@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
+
 import "./Contact.css";
 
 function Contact() {
-  const navigate = useNavigate();
+
   return (
     <section className="contact" id="contact">
       <div className="contact-container">
@@ -66,7 +66,7 @@ function Contact() {
               </a>
 
               <a
-                href="https://github.com/ushasree0702/resume"
+                href="https://github.com/ushasree0702"
                 target="_blank"
                 rel="noreferrer"
               >

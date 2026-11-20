@@ -1,10 +1,5 @@
-.resumeList {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
 .header {
-  height: 75px;
+  height: 70px;
   padding: 0 60px;
 
   display: flex;
@@ -24,11 +19,12 @@
 /* Logo */
 
 .logo {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  cursor: pointer;
+  letter-spacing: 0.3px;
   white-space: nowrap;
+  color: white;
+  text-decoration: none;
 }
 
 .logo span {
@@ -40,84 +36,87 @@
 .resumeList {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
-.resumeList button {
-  background: transparent;
-  border: none;
-
+.resumeList a {
   color: #cbd5e1;
   font-size: 15px;
   font-weight: 500;
+  text-decoration: none;
 
-  padding: 10px 14px;
+  padding: 9px 13px;
   border-radius: 6px;
 
-  cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-.resumeList button:hover {
+.resumeList a:hover,
+.resumeList a.active {
   color: white;
   background: #1e293b;
 }
 
-/* Download Resume */
-
-.resumeBtn {
-  background: #2563eb;
-  color: white;
-
-  border: none;
-  border-radius: 6px;
-
-  padding: 11px 18px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: all 0.3s ease;
+.resumeList a.active {
+  box-shadow: inset 0 -2px 0 #38bdf8;
 }
 
-.resumeBtn:hover {
+.resumeList a.resumeBtn {
+  margin-left: 8px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+}
+
+.resumeList a.resumeBtn:hover {
   background: #1d4ed8;
-  transform: translateY(-1px);
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: white;
+  font-size: 20px;
+  width: 42px;
+  height: 42px;
 }
 
 /* Mobile */
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .header {
-    padding: 0 25px;
+    padding: 0 20px;
+  }
+
+  .menu-toggle {
+    display: block;
   }
 
   .resumeList {
-    gap: 2px;
-  }
-
-  .resumeList button {
-    padding: 8px;
-    font-size: 14px;
-  }
-
-  .resumeBtn {
     display: none;
-  }
-}
-
-@media (max-width: 650px) {
-  .header {
-    height: auto;
-    padding: 18px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
     flex-direction: column;
-    gap: 15px;
+    align-items: stretch;
+    padding: 10px 16px 18px;
+    background: #0f172a;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 
-  .resumeList {
-    flex-wrap: wrap;
-    justify-content: center;
+  .resumeList.open {
+    display: flex;
+  }
+
+  .resumeList a {
+    padding: 12px 14px;
+  }
+
+  .resumeList a.resumeBtn {
+    margin: 8px 0 0;
+    text-align: center;
   }
 }

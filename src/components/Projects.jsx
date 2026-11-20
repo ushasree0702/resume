@@ -1,124 +1,148 @@
+import { useEffect, useRef } from "react";
 import "./Projects.css";
 
+const projects = [
+  {
+    title: "Internet Banking",
+    period: "2024 – Present",
+    type: "Retail Banking Application",
+    description:
+      "Developed and maintained enterprise-level internet banking applications with modern Angular architecture.",
+    responsibilities: [
+      "Developed reusable Angular components.",
+      "Integrated REST APIs for real-time customer data.",
+      "Implemented Reactive Forms and validations.",
+      "Built responsive UI for desktop and mobile.",
+    ],
+    technologies: ["Angular", "TypeScript", "Angular Material", "REST API"],
+  },
+  {
+    title: "Corporate Banking",
+    period: "2023 – Present",
+    type: "Corporate Banking Platform",
+    description:
+      "Built banking modules for corporate users including payments, transactions, account management, and approvals.",
+    responsibilities: [
+      "Developed transaction screens.",
+      "Implemented reusable components.",
+      "Integrated backend APIs.",
+      "Improved UI performance.",
+    ],
+    technologies: ["Angular", "RxJS", "HTML", "CSS"],
+  },
+  {
+    title: "Maintenance – Core Banking",
+    period: "2022 – 2023 & 2024 – Present",
+    type: "Banking Platform",
+    description:
+      "Developed dashboards and maintenance modules for creating, updating and managing core banking data.",
+    responsibilities: [
+      "Created dashboard screens.",
+      "Developed maintenance modules with full CRUD flows.",
+      "Implemented API integrations.",
+      "Created reusable UI components.",
+    ],
+    technologies: ["Angular", "Chart.js", "REST API", "SCSS"],
+  },
+  {
+    title: "Split Bills",
+    period: "2023 – 2024",
+    type: "Banking Platform",
+    description:
+      "Developed dashboards and screens for splitting and managing shared bill payments.",
+    responsibilities: [
+      "Created dashboard screens.",
+      "Developed the Split Bills user flows.",
+      "Implemented API integrations.",
+      "Created reusable UI components.",
+    ],
+    technologies: ["Angular 16", "TypeScript", "REST API", "SCSS"],
+  },
+  {
+    title: "SIAS",
+    period: "2019 – 2021",
+    type: "Enterprise Application",
+    description:
+      "Worked on frontend development and UI enhancements, building responsive screens and supporting testing and documentation.",
+    responsibilities: [
+      "Developed responsive UI screens using Angular and Angular Material.",
+      "Contributed to feature enhancements and bug fixing.",
+      "Assisted in testing and project documentation.",
+    ],
+    technologies: ["Angular", "TypeScript", "Angular Material", "HTML", "CSS"],
+  },
+];
+
+// Swiper config is passed as a JS object (React 19 sets attributes on custom
+// elements as properties, so string attributes like pagination="true" break).
+const swiperParams = {
+  slidesPerView: 1,
+  spaceBetween: 25,
+  breakpoints: { 768: { slidesPerView: 2 } }, // 1 card on phones, 2 on desktop
+  grabCursor: true,
+  pagination: { clickable: true },
+  loop: true,
+  autoplay: {
+    delay: 6000,
+    pauseOnMouseEnter: true,
+    disableOnInteraction: false,
+  },
+};
+
 function Projects() {
-  const projects = [
-    {
-      title: "SIAS",
-      period: "09/2019 – Present",
-      location: "Bangalore, Karnataka, India",
-      description:
-        "Worked on frontend development and UI enhancements for the SIAS project. Developed responsive screens, contributed to feature enhancements and bug fixes, and supported testing and documentation activities.",
-      responsibilities: [
-        "Developed responsive UI screens using Angular and Angular Material.",
-        "Contributed to feature enhancements and bug fixing.",
-        "Worked with HTML, CSS, JavaScript and TypeScript.",
-        "Assisted in testing and project documentation.",
-      ],
-      technologies: [
-        "Angular",
-        "TypeScript",
-        "Angular Material",
-        "HTML",
-        "CSS",
-        "JavaScript",
-      ],
-    },
+  const swiperRef = useRef(null);
 
-    {
-      title: "Split BILLS",
-      period: "Project",
-      description:
-        "Worked on feature enhancements, bug fixing, UI optimization, and reusable component development. Integrated APIs for system maintenance operations and improved application responsiveness.",
-      responsibilities: [
-        "Built reusable and responsive UI components.",
-        "Integrated APIs for creating, updating, deleting and fetching maintenance data.",
-        "Worked on feature enhancements and bug fixing.",
-        "Improved application responsiveness and user experience.",
-        "Participated in code reviews and deployment activities.",
-      ],
-      technologies: ["Angular 16", "TypeScript", "REST APIs", "Tailwind CSS"],
-    },
-
-    {
-      title: "ICUST – Retail & Corporate Internet Banking",
-      period: "Angular 14 / 16",
-      description:
-        "Developed responsive and reusable banking interfaces for retail and corporate customer operations using Angular and TypeScript.",
-      responsibilities: [
-        "Developed responsive UI modules for banking operations.",
-        "Integrated REST APIs for real-time customer data retrieval.",
-        "Implemented reusable components using component-based architecture.",
-        "Worked on feature enhancements and bug fixes.",
-        "Implemented performance optimizations for better user experience.",
-      ],
-      technologies: ["Angular 14", "Angular 16", "TypeScript", "REST APIs"],
-    },
-
-    {
-      title: "Maintenance System",
-      period: "Banking Maintenance",
-      description:
-        "Developed maintenance screens for creating, updating and managing banking maintenance data and workflows.",
-      responsibilities: [
-        "Built responsive, component-based UI modules.",
-        "Integrated REST APIs for CRUD operations.",
-        "Implemented create, update, delete and retrieve functionality.",
-        "Resolved defects and implemented feature enhancements.",
-        "Optimized application responsiveness and user experience.",
-      ],
-      technologies: ["Angular", "TypeScript", "REST APIs", "HTML", "CSS"],
-    },
-  ];
+  useEffect(() => {
+    const el = swiperRef.current;
+    if (!el || el.swiper) return;
+    Object.assign(el, swiperParams);
+    el.initialize();
+  }, []);
 
   return (
     <section className="projects-section" id="projects">
       <div className="projects-container">
-        {/* Header */}
         <div className="projects-header">
           <p>MY WORK</p>
-
-          <h2>Projects & Experience</h2>
-
+          <h2>Featured Projects</h2>
           <span>
-            A selection of projects and applications I have worked on throughout
-            my frontend development experience.
+            A collection of projects showcasing my experience in Angular,
+            banking applications, and enterprise web development.
           </span>
         </div>
 
-        {/* Projects */}
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <div className="project-card" key={project.title}>
-              <div className="project-top">
-                <div className="project-icon">&lt;/&gt;</div>
+        <swiper-container ref={swiperRef} init={false} class="projects-slider">
+          {projects.map((project, i) => (
+            <swiper-slide key={project.title}>
+              <article className="project-card">
+                <div className="project-top">
+                  <div className="project-icon">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <div className="project-period">{project.period}</div>
+                </div>
 
-                <span className="project-period">{project.period}</span>
-              </div>
+                <h3>{project.title}</h3>
+                <div className="project-location">{project.type}</div>
 
-              <h3>{project.title}</h3>
+                <p className="project-description">{project.description}</p>
 
-              {project.location && (
-                <p className="project-location">📍 {project.location}</p>
-              )}
+                <h4>Key Responsibilities</h4>
+                <ul>
+                  {project.responsibilities.map((r) => (
+                    <li key={r}>{r}</li>
+                  ))}
+                </ul>
 
-              <p className="project-description">{project.description}</p>
-
-              <h4>Key Responsibilities</h4>
-
-              <ul>
-                {project.responsibilities.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-
-              <div className="technology-list">
-                {project.technologies.map((technology) => (
-                  <span key={technology}>{technology}</span>
-                ))}
-              </div>
-            </div>
+                <div className="technology-list">
+                  {project.technologies.map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
+              </article>
+            </swiper-slide>
           ))}
-        </div>
+        </swiper-container>
       </div>
     </section>
   );
