@@ -2,8 +2,8 @@ import { profile } from "../data/profile";
 import "./About.css";
 
 const stats = [
-  { value: "5+", label: "Years Experience" },
-  { value: "4+", label: "Banking Products" },
+  { value: "7+", label: "Years Experience" },
+  { value: "5+", label: "Banking Products" },
   { value: "30%", label: "Faster Load Time" },
 ];
 
@@ -24,7 +24,7 @@ function About() {
           </h2>
 
           <p className="about-description">
-            Frontend Developer with 5+ years of experience building scalable,
+            Frontend Developer with 7+ years of experience building scalable,
             responsive, and user-friendly web applications for core banking.
             Specialized in Angular, TypeScript, REST APIs, reusable components,
             and performance-focused UI development.

@@ -3,6 +3,20 @@ import "./Projects.css";
 
 const projects = [
   {
+    title: "MauBank – Corporate Banking & Back Office",
+    period: "Sep 2026 – Present",
+    type: "UI Lead · Corporate Internet Banking & Back Office",
+    description:
+      "Leading UI development, implementation and integration for MauBank's corporate internet banking and back-office applications.",
+    responsibilities: [
+      "Leading the frontend: structure, component approach and code reviews.",
+      "Implementing corporate banking and back-office screens hands-on in Angular.",
+      "Integrating REST APIs for account, transaction and back-office data.",
+      "Driving feature delivery, defect fixes and UI quality for releases.",
+    ],
+    technologies: ["Angular", "TypeScript", "Angular Material", "REST API"],
+  },
+  {
     title: "Internet Banking",
     period: "2024 – Present",
     type: "Retail Banking Application",
